@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap5 Website</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<style>
+  :root{
+    --bs-body-font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+  .navbar-brand i{
+    color: var(--bs-primary);
+  }
+  .brand-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:1.6rem;
+    height:1.6rem;
+    border:2px solid var(--bs-primary);
+    border-radius:.35rem;
+    color: var(--bs-primary);
+    font-size:.9rem;
+    font-weight:700;
+  }
+  .hero{
+    background: linear-gradient(135deg, #1e6fea 0%, #2f7cf6 55%, #3f8bff 100%);
+    color:#fff;
+    padding: 5.5rem 0 6rem;
+  }
+  .hero .badge-version{
+    background:#fff;
+    color:#1e6fea;
+    font-weight:600;
+    padding:.4rem 1rem;
+    border-radius:2rem;
+    font-size:.85rem;
+  }
+  .hero h1{
+    font-weight:700;
+    font-size:3rem;
+  }
+  .hero p.lead{
+    color:rgba(255,255,255,.85);
+    max-width:650px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .btn-get-started{
+    background:#fff;
+    color:#1e6fea;
+    font-weight:600;
+    border:none;
+  }
+  .btn-get-started:hover{
+    background:#eef4ff;
+    color:#1e6fea;
+  }
+  .btn-download{
+    border:2px solid #fff;
+    color:#fff;
+    font-weight:600;
+    background:transparent;
+  }
+  .btn-download:hover{
+    background:rgba(255,255,255,.15);
+    color:#fff;
+  }
+  section{
+    padding: 4.5rem 0;
+  }
+  .feature-card{
+    border:none;
+    border-radius:.75rem;
+    padding:2rem;
+    height:100%;
+    background: var(--bs-tertiary-bg, #f7f8fa);
+  }
+  .feature-card h5{
+    font-weight:700;
+    margin-bottom:.75rem;
+  }
+  .feature-icon{
+    width:3.5rem;
+    height:3.5rem;
+    border-radius:50%;
+    background:rgba(30,111,234,.1);
+    color:#1e6fea;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.4rem;
+    margin:0 auto 1.25rem;
+  }
+  .pricing-card{
+    border-radius:.75rem;
+    padding:2.25rem 1.75rem;
+    height:100%;
+    position:relative;
+  }
+  .pricing-card.popular{
+    border:2px solid #1e6fea;
+    box-shadow: 0 10px 30px rgba(30,111,234,.15);
+  }
+  .popular-badge{
+    position:absolute;
+    top:-14px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#1e6fea;
+    color:#fff;
+    font-size:.8rem;
+    font-weight:600;
+    padding:.3rem 1rem;
+    border-radius:2rem;
+  }
+  .price{
+    font-size:2.75rem;
+    font-weight:700;
+  }
+  .price .old-price{
+    text-decoration: line-through;
+    color: var(--bs-secondary-color);
+    font-size: 1.5rem;
+    margin-right:.35rem;
+  }
+  .price .period{
+    font-size:1rem;
+    font-weight:400;
+    color: var(--bs-secondary-color);
+  }
+  .plan-name{
+    font-weight:700;
+    color:#1e6fea;
+    margin-bottom:.5rem;
+  }
+  .plan-feature{
+    padding:.35rem 0;
+  }
+  .plan-feature i{
+    width:1.2rem;
+  }
+  .testimonial-section{
+    background: var(--bs-tertiary-bg, #eef1f5);
+  }
+  .testimonial-quote{
+    font-size:1.15rem;
+    max-width:700px;
+    margin:0 auto 1.5rem;
+  }
+  .carousel-control-prev, .carousel-control-dark, .carousel-control-next{
+    width:3rem;height:3rem;background:#fff;border-radius:50%;top:50%;transform:translateY(-50%);
+    box-shadow:0 2px 8px rgba(0,0,0,.12);
+    opacity:1;
+  }
+  .carousel-control-prev{left:2%;}
+  .carousel-control-next{right:2%;}
+  .carousel-control-prev-icon,.carousel-control-next-icon{
+    filter: invert(1) grayscale(100);
+    width:1.2rem;height:1.2rem;
+  }
+  [data-bs-theme="dark"] .carousel-control-prev, [data-bs-theme="dark"] .carousel-control-next{
+    background:#333;
+  }
+  footer{
+    padding:3rem 0 2rem;
+    text-align:center;
+  }
+  footer .social-icons a{
+    display:inline-block;
+    width:2.5rem;height:2.5rem;
+    line-height:2.5rem;
+    border-radius:50%;
+    background: var(--bs-tertiary-bg, #f0f0f0);
+    margin:0 .35rem;
+    color: var(--bs-body-color);
+  }
+  .theme-toggle-btn{
+    border:none;
+    background:transparent;
+    font-size:1.1rem;
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top bg-body shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#">
+      <span class="brand-icon">B</span> Bootstrap5 Website
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-3">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item">
+          <button class="theme-toggle-btn" id="themeToggle" title="Toggle dark mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section id="home" class="hero text-center">
+  <div class="container">
+    <span class="badge-version">Version 5.3.8</span>
+    <h1 class="mt-4">Build fast, responsive sites<br>with Bootstrap</h1>
+    <p class="lead mt-3">Powerful, extensible, and feature-packed frontend toolkit. Build and customize with Sass, utilize prebuilt grid system and components, and bring projects to life with powerful JavaScript plugins.</p>
+    <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+      <button class="btn btn-get-started btn-lg px-4">Get Started</button>
+      <button class="btn btn-download btn-lg px-4">Download Bootstrap 5.3.8</button>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container text-center">
+    <h2 class="fw-bold">Powerful Features</h2>
+    <p class="text-secondary mb-5">Designed to give you full control over your layout and functionality.</p>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-moon"></i></div>
+          <h5>Dark Mode Ready</h5>
+          <p class="text-secondary mb-0">Built-in theme switcher using Bootstrap 5's native data-bs-theme attribute.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h5>100% Mobile First</h5>
+          <p class="text-secondary mb-0">Fully fluid layout engineered to scale down seamlessly to mobile screens.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-sliders"></i></div>
+          <h5>Interactive UI</h5>
+          <p class="text-secondary mb-0">Includes dynamic feedback toasts, sliders, and form validation logic.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container text-center">
+    <h2 class="fw-bold">Flexible Pricing</h2>
+    <p class="text-secondary mb-5">Choose the plan that fits your business needs.</p>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4">
+        <div class="pricing-card border h-100">
+          <div class="plan-name"><i class="fa-solid fa-seedling me-2"></i>Starter</div>
+          <div class="price">₱0.00 <span class="period">/mo</span></div>
+          <ul class="list-unstyled text-start mt-4">
+            <li class="plan-feature"><i class="fa-solid fa-check text-primary"></i> 1 Project</li>
+            <li class="plan-feature"><i class="fa-solid fa-check text-primary"></i> Community Support</li>
+            <li class="plan-feature text-secondary"><i class="fa-solid fa-xmark text-secondary"></i> Custom Domain</li>
+          </ul>
+          <button class="btn btn-outline-primary w-100 mt-3">Sign Up Free</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="pricing-card popular h-100">
+          <span class="popular-badge">Most Popular</span>
+          <div class="plan-name"><i class="fa-solid fa-star me-2"></i>Pro Developer</div>
+          <div class="price">₱49.00 <span class="period">/mo</span></div>
+          <ul class="list-unstyled text-start mt-4">
+            <li class="plan-feature"><i class="fa-solid fa-check text-primary"></i> Unlimited Projects</li>
+            <li class="plan-feature"><i class="fa-solid fa-check text-primary"></i> Priority Support</li>
+            <li class="plan-feature"><i class="fa-solid fa-check text-primary"></i> Custom Domain</li>
+          </ul>
+          <button class="btn btn-primary w-100 mt-3">Get Started Pro</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="pricing-card border h-100">
+          <div class="plan-name"><i class="fa-solid fa-building me-2"></i>Enterprise</div>
+          <div class="price">₱109.00 <span class="period">/mo</span></div>
+          <ul class="list-unstyled text-start mt-4">
+            <li class="plan-feature"><i class="fa-solid fa-check text-primary"></i> Dedicated Server</li>
+            <li class="plan-feature"><i class="fa-solid fa-check text-primary"></i> 24/7 Phone Support</li>
+            <li class="plan-feature"><i class="fa-solid fa-check text-primary"></i> SLA Guarantee</li>
+          </ul>
+          <button class="btn btn-outline-primary w-100 mt-3">Contact Sales</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="testimonial-section">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-5">What People Say</h2>
+    <div id="reviewCarousel" class="carousel slide position-relative" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <p class="testimonial-quote">"This Bootstrap starter layout completely sped up my client workflow. Highly recommended!"</p>
+          <h6 class="fw-bold mb-0">Calvin Placio, BSIT-Network Technology Track</h6>
+          <small class="text-secondary">Lead Developer, Code-Smart Solutions</small>
+        </div>
+        <div class="carousel-item">
+          <p class="testimonial-quote">"The dark mode toggle integration works like a charm. Extremely clean markup!"</p>
+          <h6 class="fw-bold mb-0">Harrold Evangelista, BSIT-Business Analytics Track</h6>
+          <small class="text-secondary">UI/UX Designer</small>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#reviewCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Get In Touch</h2>
+      <p class="text-secondary">Fill out the form below to send us a live message.</p>
+    </div>
+    <form class="row g-3 needs-validation mx-auto" style="max-width:800px;" novalidate>
+      <div class="col-md-6">
+        <label class="form-label">First Name</label>
+        <input type="text" class="form-control" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-control" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="col-12">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-control" placeholder="you@example.com" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="col-12">
+        <label class="form-label">Message</label>
+        <textarea class="form-control" rows="4" required></textarea>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary btn-lg w-100" type="submit">Submit Form</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="border-top">
+  <div class="social-icons mb-3">
+    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+    <a href="#"><i class="fa-brands fa-github"></i></a>
+  </div>
+  <p class="text-secondary mb-0">&copy; 2026 SirMags. Built with Bootstrap 5.3.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+  const toggleBtn = document.getElementById('themeToggle');
+  const htmlEl = document.documentElement;
+  toggleBtn.addEventListener('click', () => {
+    const current = htmlEl.getAttribute('data-bs-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    htmlEl.setAttribute('data-bs-theme', next);
+    toggleBtn.innerHTML = next === 'dark'
+      ? '<i class="fa-solid fa-sun"></i>'
+      : '<i class="fa-solid fa-moon"></i>';
+  });
+
+  (() => {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+</script>
+</body>
+</html>
